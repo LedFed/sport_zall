@@ -1,0 +1,53 @@
+.characteristics__list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  width: 770px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+
+.characteristics__title {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #111113;
+  text-align: left;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #E8E8E8;
+  background-color: transparent;
+  padding: 24px 0;
+  position: relative;
+  cursor: pointer;
+}
+.characteristics__title::after {
+  content: "+";
+  position: absolute;
+  right: 5px;
+}
+.characteristics__title.active:after {
+  content: "-";
+}
+
+.characteristics__description {
+  font-family: "Apercu Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #111113;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+  height: 0;
+}
+.characteristics__description.active {
+  height: auto;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.characteristics__list-description {
+  padding: 24px 0;
+}
