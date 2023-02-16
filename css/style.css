@@ -109,6 +109,7 @@ body {
           backdrop-filter: blur(28px);
   height: 100vh;
   position: relative;
+  background-size: cover;
 }
 .inner::after {
   content: "";
@@ -478,6 +479,17 @@ nav {
   padding: 38px;
 }
 
+.inf_ic {
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+}
+.inf_ic img {
+  width: 55px;
+  height: 55px;
+  fill: #EF9817;
+}
+
 .map_title {
   font-family: "Overpass";
   font-style: normal;
@@ -704,6 +716,7 @@ label .debug {
 }
 .navig_fix.active .logo {
   z-index: 1;
+  font-size: 32px;
 }
 .navig_fix.active .menu--3 {
   z-index: 1;
@@ -774,7 +787,7 @@ label .debug {
   .inner_main {
     font-size: 40px;
   }
-  .header_items {
+  .navig_fix .header_items {
     display: none;
   }
   .menu--3 {
@@ -811,6 +824,24 @@ label .debug {
   .characteristics__list {
     max-width: 90%;
   }
+  .map {
+    filter: grayscale(0%);
+  }
+  .map_block {
+    transform: translateX(-140%);
+  }
+  .map_block.active {
+    transform: translateX(0%);
+  }
+  .footer_block {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .footer_block .header_items {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+  }
 }
 @media (max-width: 500px) {
   .container {
@@ -826,6 +857,9 @@ label .debug {
   .inner_text {
     margin-bottom: 40px;
   }
+  .inner_btn {
+    padding: 16px 32px;
+  }
   .price_items {
     margin: -32px -16px;
   }
@@ -833,6 +867,7 @@ label .debug {
     margin-top: 50px;
     margin-bottom: 26px;
     font-size: 24px;
+    line-height: 36px;
   }
   .order_block {
     flex-direction: column;
@@ -842,5 +877,8 @@ label .debug {
   }
   .order_block > * {
     width: 100%;
+  }
+  .order_title {
+    font-size: 32px;
   }
 }
