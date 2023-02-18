@@ -74,16 +74,61 @@ window.addEventListener('scroll', () => {
 burger.addEventListener('change', () => {
     event.preventDefault();
     // if (checker.checked !== false) {
-        // navigation.classList.toggle('active');
-        // burger.classList.toggle('active');
-        header.classList.toggle('active');
+    // navigation.classList.toggle('active');
+    // burger.classList.toggle('active');
+    header.classList.toggle('active');
 
-        document.body.style.overflow = 'hidden'
-        if(!checker.checked) {
-            checker.checked = false;
-            document.body.style.removeProperty('overflow');
-        }
-    
+    document.body.style.overflow = 'hidden'
+    if (!checker.checked) {
+        checker.checked = false;
+        document.body.style.removeProperty('overflow');
+    }
+
 })
 
+//Принимает два параметра функцию и опцию '0,7'
+const observer = new IntersectionObserver((entry) => {
+    entry.forEach((entryes) => {
+        // Если элемент пересекает
+        if (entryes.isIntersecting) {
+            //Находим все ссылки в QS и сравниваем с переданой секцией(entryes) если ок то выдаем класс active
+            document.querySelectorAll('.header_links').forEach((link) => {
+                link.classList.toggle('active',
+                    link.getAttribute('href').replace('#', '') === entryes.target.id)
+            })
+        }
+    })
+}, {
+    threshold: 1.0,
+    rootMargin: '290px',
+});
+// Тут мы нашли все наши секции и перебираем их вызывая для каждого элемента observer
+document.querySelectorAll('.section').forEach((section) => {
+    observer.observe(section);
+})
+
+// Вешаем обработчик на все ссылки 
+document.querySelector('.header_item').addEventListener('click', (event) => {
+    // Если ссылка есть по клику то получаем ее href без "#" 
+    if (event.target.classList.contains('header_links')) {
+        event.preventDefault();
+        // const id = getId(event.target)
+        const id = event.target.getAttribute('href').replace('#', '');
+        // console.log(document.getElementById(id).offsetTop);
+        // console.log(1);
+        // Скролимся к блоку 
+        window.scrollTo({
+            top: document.getElementById(id).offsetTop - 30,
+            behavior: 'smooth',
+
+        })
+    }
+})
+
+let infBtn = document.querySelector('.inf_ic');
+
+infBtn.addEventListener('click', () => {
+    // infBtn.classList.toggle('active');
+    infBtn.previousElementSibling.classList.toggle('active');
+})
 accoridon();
