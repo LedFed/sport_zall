@@ -57,6 +57,8 @@ const first = document.querySelector('.inner');
 let burger = document.querySelector('.menu--3');
 let checker = burger.querySelector('input[type=checkbox]');
 
+console.log(header.querySelectorAll('.header_item'));
+
 
 window.addEventListener('scroll', () => {
     let scrollDistance = window.scrollY;
@@ -73,9 +75,6 @@ window.addEventListener('scroll', () => {
 
 burger.addEventListener('change', () => {
     event.preventDefault();
-    // if (checker.checked !== false) {
-    // navigation.classList.toggle('active');
-    // burger.classList.toggle('active');
     header.classList.toggle('active');
 
     document.body.style.overflow = 'hidden'
@@ -83,6 +82,14 @@ burger.addEventListener('change', () => {
         checker.checked = false;
         document.body.style.removeProperty('overflow');
     }
+    header.querySelectorAll('.header_item').forEach(e => {
+        e.addEventListener('click', () => {
+            burger.classList.remove('active');
+            checker.checked = false;
+            header.classList.remove('active')
+            document.body.style.removeProperty('overflow');
+        })
+    });
 
 })
 
