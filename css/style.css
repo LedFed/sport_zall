@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Shototam";
   src: url(../font/Overpass-VariableFont_wght.ttf), url(../font/Overpass-Italic-VariableFont_wght.ttf);
@@ -346,6 +347,25 @@ nav {
   font-weight: 400;
   margin-top: 50px;
   margin-bottom: 32px;
+}
+
+.sale {
+  position: relative;
+}
+.sale::after {
+  content: "30 000₽";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -22px;
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.62px;
+  text-decoration-line: line-through;
+  color: #858585;
 }
 
 .price_btn {
